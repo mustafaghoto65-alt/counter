@@ -1,3 +1,4 @@
+import 'package:counterapp/splash.dart'; // Splash screen import
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,11 +13,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreenAccent),
       ),
-      home: const MyHomePage(title: 'Flutter CounterApp'),
       debugShowCheckedModeBanner: false,
+
+      // Pehle SplashScreen chalegi
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashScreen(), // Splash screen
+        '/home': (context) =>
+        const MyHomePage(title: 'Flutter CounterApp'), // Home screen
+      },
     );
   }
 }
@@ -54,7 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
-
             ),
           ],
         ),
